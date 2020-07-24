@@ -49,7 +49,7 @@ CREATE TABLE json_source (
     'connector.properties.group.id'             = 'testGroup',          // 消费使用的group.id
     'connector.version'                         = 'universal',          // kafka的版本 默认都是 "universal"
     'format.type'                               = 'json',               // kafka中传输的消息格式，json
-    'connector.startup-mode'                    ='latest-offset'        // 从kafka中开始消费的位置
+    'connector.startup-mode'                    = 'latest-offset'        // 从kafka中开始消费的位置
 );
 ```
 *Notes：字段名需要和json中的第一层名字一一对应。关键字需要加(``)。例如： `map`  MAP<STRING,BIGINT>。*
