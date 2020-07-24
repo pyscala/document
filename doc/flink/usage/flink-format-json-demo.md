@@ -41,15 +41,15 @@ CREATE TABLE json_source (
     timestamp2    TIMESTAMP(3),
     `map`         MAP<STRING,BIGINT>,
     map2map       MAP<STRING,MAP<STRING,INTEGER>>,
-    proctime as PROCTIME()
+    proctime      as PROCTIME()
  ) WITH (
-    'connector.type' = 'kafka',  // 数据源的类型,比如kafka
-    'connector.topic' = 'json1',  // topic的名字
-    'connector.properties.bootstrap.servers' = 'localhost:9092',   // kafka的bootstrap.servers地址
-    'connector.properties.group.id' = 'testGroup',    // 消费使用的group.id
-    'connector.version'='universal',   // kafka的版本 默认都是 "universal"
-    'format.type' = 'json',     // kafka中传输的消息格式，json
-    'connector.startup-mode'='latest-offset'   // 从kafka中开始消费的位置
+    'connector.type'                            = 'kafka',              // 数据源的类型,比如kafka
+    'connector.topic'                           = 'json1',              // topic的名字
+    'connector.properties.bootstrap.servers'    = 'localhost:9092',     // kafka的bootstrap.servers地址
+    'connector.properties.group.id'             = 'testGroup',          // 消费使用的group.id
+    'connector.version'                         = 'universal',          // kafka的版本 默认都是 "universal"
+    'format.type'                               = 'json',               // kafka中传输的消息格式，json
+    'connector.startup-mode'                    ='latest-offset'        // 从kafka中开始消费的位置
 );
 ```
 *Notes：字段名需要和json中的第一层名字一一对应。关键字需要加(``)。例如： `map`  MAP<STRING,BIGINT>。*
